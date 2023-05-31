@@ -25,6 +25,9 @@ module.exports = {
           template: 'src/index.html'
         })
       ],
+      resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+      },
       module: {
         rules: [
             {
@@ -36,6 +39,11 @@ module.exports = {
                     presets: ['@babel/preset-env']
                   }
                 }
+              },
+              {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
               },
           {
             test: /\.s[ac]ss$/i,
